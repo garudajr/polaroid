@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaroid Web Cam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Webcam Polaroid</h1>
+
+        <div class="camera-feed">
+            <video id="videoElement" autoplay></video>
+            <button id="snapButton">Ambil Foto!</button>
+        </div>
+
+        <div class="printer-area">
+            <div class="printer-slot"></div>
+            <div id="polaroidOutput" class="polaroid-frame hidden">
+                <canvas id="polaroidCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

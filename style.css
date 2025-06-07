@@ -1,0 +1,106 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    color: #5a5a5a;
+    margin-bottom: 20px;
+}
+
+.camera-feed {
+    margin-bottom: 20px;
+}
+
+#videoElement {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: #000;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+#snapButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#snapButton:hover {
+    background-color: #0056b3;
+}
+
+.printer-area {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    position: relative; /* Penting untuk penempatan polaroid */
+    height: 300px; /* Memberi ruang untuk polaroid */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Untuk menempatkan slot di bagian bawah */
+    overflow: hidden; /* Penting untuk efek keluar */
+}
+
+.printer-slot {
+    width: 80%;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0; /* Letakkan di bagian bawah area printer */
+}
+
+.polaroid-frame {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 15px 60px 15px; /* Padding bawah lebih besar untuk efek polaroid */
+    position: absolute;
+    bottom: -100%; /* Awalnya di luar layar, di bawah */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 1.5s ease-out; /* Animasi bergerak ke atas */
+    z-index: 10;
+    box-sizing: border-box; /* Pastikan padding masuk dalam ukuran */
+    width: 200px; /* Ukuran polaroid */
+    height: auto; /* Tinggi akan disesuaikan dengan padding dan konten */
+}
+
+.polaroid-frame.show {
+    bottom: 50px; /* Posisi akhir setelah "keluar" */
+}
+
+.polaroid-frame.hidden {
+    display: none; /* Sembunyikan elemen sepenuhnya saat tidak digunakan */
+}
+
+#polaroidCanvas {
+    display: block;
+    width: 100%; /* Canvas akan mengisi area polaroid */
+    height: 120px; /* Tinggi gambar di polaroid */
+    background-color: #eee; /* Placeholder */
+}
