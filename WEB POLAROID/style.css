@@ -1,0 +1,125 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    color: #5a5a5a;
+    margin-bottom: 20px;
+}
+
+.camera-feed {
+    margin-bottom: 20px;
+}
+
+/* Wrapper untuk menjaga rasio aspek 1:1 pada video */
+.video-wrapper {
+    width: 100%;
+    max-width: 400px; /* Lebar maksimal video */
+    margin: 0 auto 15px auto;
+    position: relative;
+    padding-top: 100%; /* Membuat tinggi sama dengan lebar (1:1 aspect ratio) */
+    overflow: hidden; /* Penting untuk menyembunyikan bagian video yang keluar dari kotak 1:1 */
+    background-color: #000;
+    border-radius: 5px;
+}
+
+#videoElement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menutupi area 1:1 tanpa distorsi, bisa memotong sisi */
+    /* object-fit: contain; /* Alternatif: menutupi area 1:1 tanpa memotong, bisa menyisakan ruang */
+    transform: scaleX(-1); /* Membalik video secara horizontal agar terlihat seperti cermin */
+}
+
+
+#snapButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#snapButton:hover {
+    background-color: #0056b3;
+}
+
+.printer-area {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    position: relative;
+    min-height: 300px; /* Cukup tinggi untuk strip polaroid */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Untuk menempatkan slot di bagian bawah */
+    overflow: hidden;
+}
+
+.printer-slot {
+    width: 80%;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    z-index: 20; /* Pastikan slot ada di atas strip saat keluar */
+}
+
+.polaroid-strip {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 15px 60px 15px; /* Padding bawah lebih besar untuk efek polaroid strip paling bawah */
+    position: absolute;
+    bottom: -100%; /* Awalnya di luar layar, di bawah */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 1.5s ease-out; /* Animasi bergerak ke atas */
+    z-index: 10;
+    box-sizing: border-box;
+    width: 200px; /* Lebar keseluruhan strip polaroid */
+    display: flex; /* Untuk menyusun foto-foto secara vertikal */
+    flex-direction: column; /* Susun ke bawah */
+    align-items: center; /* Pusatkan foto di dalam strip */
+    gap: 10px; /* Jarak antar foto dalam strip */
+}
+
+.polaroid-strip.show {
+    bottom: 50px; /* Posisi akhir setelah "keluar" */
+}
+
+.polaroid-strip.hidden {
+    display: none;
+}
+
+/* Gaya untuk setiap kanvas foto di dalam strip */
+.polaroid-strip canvas {
+    display: block;
+    width: 100%; /* Agar foto mengisi lebar bingkai */
+    height: auto; /* Tinggi akan menyesuaikan proporsi 1:1 dari lebar */
+    background-color: #eee; /* Placeholder */
+}

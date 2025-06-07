@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaroid Strip Web Cam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Webcam Polaroid Strip</h1>
+
+        <div class="camera-feed">
+            <div class="video-wrapper">
+                <video id="videoElement" autoplay></video>
+            </div>
+            <button id="snapButton">Ambil Foto!</button>
+        </div>
+
+        <div class="printer-area">
+            <div class="printer-slot"></div>
+            <div id="polaroidStripOutput" class="polaroid-strip hidden">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
